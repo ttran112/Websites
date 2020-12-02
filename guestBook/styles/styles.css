@@ -22,3 +22,12 @@ label {
 .choose {
     color: #20c997;
 }
+
+thead > tr > td {
+     font-weight: bold;
+    color: #20c997;
+ }
+
+#table-main {
+    background-color: gainsboro;
+}

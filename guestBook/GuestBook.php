@@ -1,10 +1,24 @@
 <?php
 //Include header file
+//include('includes/head.html');
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+session_start();
+if (!isset($_SESSION['loggedin'])) {
+
+    //Store the page that I'm currently on in the session
+    $_SESSION['page'] = $_SERVER['SCRIPT_URI'];
+
+    //Redirect to login
+    //header("location: adminLogin.php");
+}
 include('includes/head.html');
 ?>
 
 <body>
-
+<div class="container">
 <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
     <div class="container">
 
@@ -22,13 +36,14 @@ include('includes/head.html');
 
         <div class="collapse navbar-collapse" id="myTogglerNav">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="GuestBookTable.php">Table</a>
+                <a class="nav-item nav-link active" href="GuestBook.php">Home</a>
+                <a class="nav-item nav-link active" href="adminLogin.php">Admin</a>
             </div><!-- navbar -->
         </div><!-- collapse -->
 
     </div><!-- container -->
 </nav><!-- nav -->
-
+</div>
 <div id="main" class=" container container-fluid">
     <div class="jumbotron jumbotron-fluid"> <!-- intro -->
         <div class="container container-fluid">
@@ -147,7 +162,7 @@ include('includes/head.html');
 
 
         <div class="checkbox">
-            <label><input type="checkbox" id="addMe" onclick="check()"> Please add me to your mail list!</label>
+            <label for="addMe"><input type="checkbox" id="addMe" name="addMe" onclick="check()" value="addMe"> Please add me to your mail list!</label>
         </div>
 
 

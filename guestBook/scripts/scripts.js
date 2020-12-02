@@ -22,7 +22,7 @@ function validate() {
             console.log(isValid);
             validateLastName();
             console.log(isValid);
-            checkPhone();
+            //checkPhone();
             console.log(isValid);
             reason();
             linkedIn();
@@ -36,7 +36,7 @@ function validate() {
             console.log(isValid);
             validateLastName();
             console.log(isValid);
-            checkPhone();
+            //checkPhone();
             console.log(isValid);
             reason();
             linkedIn();
@@ -70,7 +70,7 @@ function validateLastName(){
     return isValid;
 }
 //validate phone
-function checkPhone() {
+/*function checkPhone() {
     let phone = document.getElementById("phone").value;
     //let phoneFormat = new RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im);
     let phoneFormat = new RegExp(/^\d{10}$/);
@@ -86,7 +86,7 @@ function checkPhone() {
         isValid = false;
     }
     return isValid;
-}
+}*/
 
 //Validate reason
 

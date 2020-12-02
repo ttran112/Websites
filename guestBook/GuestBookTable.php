@@ -2,13 +2,52 @@
 ini_set('display_errors',1);
 error_reporting(E_ALL);
 
+
+session_start();
+if (!isset($_SESSION['loggedin'])) {
+
+    //Store the page that I'm currently on in the session
+    //$_SESSION['page'] = $_SERVER['SCRIPT_URI'];
+
+    //Redirect to login
+    header("location: adminLogin.php");
+}
+
 //include files
-include('includes/head.html');
+//include('includes/head.html');
 require('includes/databaseCredential.php');
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" >
+    <link rel="icon" href="images/guestbook.jpg" type="image/jpg">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
 <body>
+
+<div class="container">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Guestbook</a>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="GuestBook.php">Home</a></li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="adminLogout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+</div>
+<!--<body>
+<div class="container">
 <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
-    <div class="container">
+    <div class="container-fluid">
 
         <button class="navbar-toggler"
                 type="button"
@@ -25,12 +64,17 @@ require('includes/databaseCredential.php');
         <div class="collapse navbar-collapse" id="myTogglerNav">
             <div class="navbar-nav">
                 <a class="nav-item nav-link active" href="GuestBook.php">Home</a>
-            </div><!-- navbar -->
-        </div><!-- collapse -->
+            </div>
+            <div class="nav navbar-nav navbar-right">
+                <a href="adminLogout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+            </div>
 
-    </div><!-- container -->
-</nav><!-- nav -->
-<div class="container" id="main">
+        </div>
+
+    </div>
+</nav>
+</div> -->
+<div class="container-fluid" id="table-main">
     <h1>GuestBook Summary</h1>
     <table id="order-table" class="display" style="width:100%">
         <thead>
@@ -67,9 +111,11 @@ require('includes/databaseCredential.php');
             $meetReason = $row['meetReason'];
             $otherReason = $row['otherReason'];
             $date = date("F j, Y g:i a", strtotime($row['date']) );
+            //$date = "SELECT `date` FROM `guestbook` ORDER BY `id` DESC ";
 
             echo "<tr>";
             echo "<td>$id</td>";
+            //echo "<td>$date</td>";
             echo "<td>$fullname</td>";
             echo "<td>$company</td>";
             echo "<td>$job</td>";
@@ -111,6 +157,10 @@ require('includes/databaseCredential.php');
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 <script src="scripts/scripts.js"></script>
+<script src="//code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 
 <script>
