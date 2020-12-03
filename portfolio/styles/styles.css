@@ -1,0 +1,109 @@
+
+.nav-link {
+    padding-right: 1.5rem!important;
+    padding-left: 1.5rem!important;
+    font-size: 18px;
+}
+
+.nav-link:hover {
+    color: white!important;
+}
+
+body {
+    background-color: darkgray;
+}
+
+html{
+    background-color: #B7D0E5;
+
+
+}
+body {
+    font-family: serif,cursive, sans-serif;
+}
+
+/*.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "header header header "
+                       "aside aside aside"
+                       "main main main "
+                       "article article article "
+;}*/
+
+header {
+    grid-area: header;
+}
+header {
+    display: grid;
+    justify-content: center;
+}
+.background {
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    /*height:400px;*/
+
+    line-height: 0px;
+    clear: both;
+
+}
+aside {
+    display: grid;
+    grid-area: aside;
+}
+.bio {
+    width: 40%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    position: relative;
+    bottom: 50%;
+}
+main {
+    display: grid;
+    grid-area: main;
+    text-align: center;
+    position: relative;
+    bottom: 50%;
+    line-height: 1.5em;
+
+}
+main > p {
+    position: relative;
+    bottom: 90px;
+}
+
+article {
+    grid-area: article;
+    display: grid;
+    line-height: normal;
+    font-size: 1.2em;
+    position: relative;
+    bottom: 30px;
+
+}
+article > p {
+    /*align-items: grid-row-start 1;*/
+    font-family: sans-serif;
+}
+h3 {
+    font-family: serif;
+    text-align: center;
+    color: cornflowerblue;
+}
+footer {
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
